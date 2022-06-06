@@ -22,7 +22,12 @@ fig.set_dpi(dpi)
 fig.set_figwidth(width/dpi)
 fig.set_figheight(height/dpi)
 
+os.chdir('C:\\Unreal Projects\\Plotting\\Content\\Scripts')
+file = 'SimOut_TCS.csv'
+data_df = pd.read_csv(file)
+
 def setPlotData():
+
     os.chdir('C:\\Unreal Projects\\Plotting\\Content\\Scripts')
     file = 'SimOut_TCS.csv'
     data_df = pd.read_csv(file)
@@ -36,11 +41,17 @@ def setPlotData():
     plt.ylabel('Concentration', fontsize=20)
     plt.title('Simulation Plot', fontsize=20)
 
-    plt.plot(data_df['L'], label = 'L', marker = 'o')
-    plt.plot(data_df['R'], label = 'R', marker = 'o')
-    plt.plot(data_df['RL'], label = 'RL', marker = 'o')
-    plt.plot(data_df['P'], label = 'P', marker = 'o')
-    plt.plot(data_df['pP'], label = 'pP', marker = 'o')
+    L = data_df['L']
+    R = data_df['R']
+    RL = data_df['RL']
+    P = data_df['P']
+    pP = data_df['pP']
+
+    plt.plot(L, label = 'L', marker = 'o')
+    plt.plot(R, label = 'R', marker = 'o')
+    plt.plot(RL, label = 'RL', marker = 'o')
+    plt.plot(P, label = 'P', marker = 'o')
+    plt.plot(pP, label = 'pP', marker = 'o')
 
     plt.legend()
 
